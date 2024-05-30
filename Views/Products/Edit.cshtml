@@ -1,0 +1,83 @@
+﻿@model ProductDto
+@{
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">Edit Product</h2>
+
+        <form method="post" enctype="multipart/form-data">
+            <div class=" row mb-3">
+                <label class="col-sm-4 col-form-label">Id</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["ProductId"]">
+                </div>
+            </div>
+            <div class=" row mb-3">
+                <label class="col-sm-4 col-form-label">Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="Name">
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Category</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="Category">
+                        <option value='Green Energy Solutions'>Green Energy Solutions</option>
+                        <option value='Sustainable Farming Equipment'>Sustainable Farming Equipment</option>
+                        <option value='Organic Farming Supplies'>Organic Farming Supplies</option>
+                        <option value='Educational and Training Resources'>Educational and Training Resources</option>
+                        <option value='Monitoring and Automation Tools'>Monitoring and Automation Tools</option>
+                        <option value='Collaboration and Funding Opportunities'>Collaboration and Funding Opportunities</option>
+
+                    </select>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Price</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="price">
+                    <span asp-validation-for="price" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="offset-sm-4 col-sm-8">
+                    <img src="/products/@ViewData["ImageFileName"]" width="150">
+                </div>
+
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Image</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="ImageFile">
+                    <span asp-validation-for="ImageFile" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-from-label">Created At</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["ProdDate"]">
+                </div>
+             </div>
+
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Products" asp-action="Index" role="button">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
